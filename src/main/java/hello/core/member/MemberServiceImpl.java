@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class MemberServiceImpl implements MemberService{
 
-    private MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
-    @Autowired
+    //@Autowired 생성자가 한 개일 경우, 없어도 자동으로 주입된다.
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
