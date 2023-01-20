@@ -17,7 +17,7 @@ public class BeanLifeCycle {
 
     @Configuration
     static class LifeCycleConfig{
-        @Bean
+        @Bean(initMethod = "init")//destroyMethod를 셋팅 안해줘도, close,shutdown 함수를 자동으로 호출한다.
         public NetworkClient networkClient(){
             NetworkClient nc = new NetworkClient();
             System.out.println("LifeCycleConfig.networkClient url setter");
