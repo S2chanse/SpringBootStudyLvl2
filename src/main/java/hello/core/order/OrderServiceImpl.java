@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
+    private final @MainDiscountPolicy DiscountPolicy discountPolicy;
 
     public OrderServiceImpl(MemberRepository memberRepository,@MainDiscountPolicy DiscountPolicy discountPolicy) {
         System.out.println("discountPolicy =" +discountPolicy);
