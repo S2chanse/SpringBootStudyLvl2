@@ -3,6 +3,9 @@ package hello.core.lifecycle;
 
 import org.springframework.context.annotation.Bean;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class NetworkClient {
     private String url;
 
@@ -26,11 +29,13 @@ public class NetworkClient {
     public void disconnect(){
         System.out.println("NetworkClient.disconnect close:"+url);
     }
+    @PostConstruct
     public void init() throws Exception {
         System.out.println("init");
         connect();
         call("초기화 연결메시지");
     }
+    @PreDestroy
     public void close() throws Exception {
         System.out.println("close");
         disconnect();
